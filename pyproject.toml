@@ -13,7 +13,8 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project.scripts]
-task-mcp-server = "task_mcp_server.server:main"
+[project.scripts]
+task-mcp-server = "task_mcp_server.server:run_server"
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/task_mcp_server"]

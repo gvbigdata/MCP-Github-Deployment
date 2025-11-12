@@ -177,5 +177,10 @@ async def main():
             )
         )
 
-if __name__ == "__main__":
+def run_server():
+    """Entry point for the server."""
+    import asyncio
     asyncio.run(main())
+
+if __name__ == "__main__":
+    run_server()
