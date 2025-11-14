@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+  task-mcp-server:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: task-mcp-server:latest
+    container_name: task-mcp-server
+    stdin_open: true
+    tty: true
+    restart: unless-stopped
+    environment:
+      - PYTHONUNBUFFERED=1
+    # For stdio-based MCP servers, we use stdin/stdout
+    # No ports needed unless using HTTP transport
+    # ports:
+    #   - "8000:8000"
+    
+    # Optional: mount volume for persistent data
+    # volumes:
+    #   - ./data:/app/data
+    
+    # Resource limits (optional)
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 512M
+        reservations:
+          cpus: '0.25'
+          memory: 256M
